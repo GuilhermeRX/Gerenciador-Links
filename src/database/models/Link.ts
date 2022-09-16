@@ -6,6 +6,7 @@ class Link extends Model {
   id!: number;
   url!: string;
   label!: string;
+  userId!: number
 }
 
 Link.init({
@@ -21,6 +22,10 @@ Link.init({
   },
   label: {
     type: STRING,
+    allowNull: false,
+  },
+  userId: {
+    type: INTEGER,
     allowNull: false,
   }
 }, {
