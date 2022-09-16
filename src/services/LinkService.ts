@@ -1,6 +1,6 @@
-import Link from "../database/models/Link";
-import ILink from "../interfaces/ILink";
-import IService from "../interfaces/IService";
+import Link from '../database/models/Link';
+import ILink from '../interfaces/ILink';
+import IService from '../interfaces/IService';
 
 export default class LinkService implements IService<ILink> {
   private db = Link;
