@@ -1,5 +1,8 @@
 import cors from 'cors';
 import express from 'express';
+import errorMiddleware from './middlewares/error.middleware';
+import linkRoute from './routes/link.route';
+import userRoute from './routes/user.route';
 
 export default class App {
   public app: express.Express;
@@ -9,7 +12,9 @@ export default class App {
     this.app.use(express.json());
     this.app.use(cors());
 
-    this.app.get('/', (req, res) => res.status(200).json('Online'));
+    this.app.use('/user', userRoute);
+    this.app.use('/link', linkRoute);
+    this.app.use(errorMiddleware);
   }
 
   public start(PORT: string | number): void {

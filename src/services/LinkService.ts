@@ -7,7 +7,7 @@ export default class LinkService implements IService<ILink> {
 
   public async create(obj: ILink): Promise<ILink> {
     const [link] = await this.db
-      .findOrCreate({ where: { email: obj.label }, defaults: { ...obj } });
+      .findOrCreate({ where: { label: obj.label }, defaults: { ...obj } });
     if (!link) {
       throw new Error('Label já existe');
     }
