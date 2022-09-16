@@ -26,11 +26,11 @@ User.init({
   password: {
     type: STRING,
     allowNull: false,
-  }
+  },
 }, {
   sequelize: db,
   modelName: 'users',
   timestamps: false,
-})
+});
 
 export default User;

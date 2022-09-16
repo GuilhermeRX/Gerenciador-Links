@@ -6,7 +6,7 @@ class Link extends Model {
   id!: number;
   url!: string;
   label!: string;
-  userId!: number
+  userId!: number;
 }
 
 Link.init({
@@ -27,13 +27,13 @@ Link.init({
   userId: {
     type: INTEGER,
     allowNull: false,
-  }
+  },
 }, {
   sequelize: db,
   modelName: 'links',
   underscored: true,
   timestamps: true,
-})
+});
 
 Link.belongsTo(User, {
   foreignKey: 'userId',
@@ -44,7 +44,5 @@ User.hasMany(Link, {
   foreignKey: 'userId',
   as: 'links',
 });
-
-
 
 export default Link;
