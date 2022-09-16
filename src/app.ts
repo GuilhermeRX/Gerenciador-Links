@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 
-class App {
+export default class App {
   public app: express.Express;
 
   constructor() {
@@ -16,5 +16,3 @@ class App {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
   }
 }
-
-export default App;
