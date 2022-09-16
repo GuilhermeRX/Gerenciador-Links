@@ -2,8 +2,12 @@ import { Request, Response } from 'express';
 import IController from '../interfaces/IController';
 import IService from '../interfaces/IService';
 
-export default class AbstractController<T> implements IController {
-  constructor(private _service: IService<T>) { }
+export default abstract class AbstractController<T> implements IController {
+  protected _service: IService<T>;
+
+  constructor(service: IService<T>) {
+    this._service = service;
+  }
 
   public async create(req: Request, res: Response): Promise<Response> {
     const obj = await this._service.create(req.body);
