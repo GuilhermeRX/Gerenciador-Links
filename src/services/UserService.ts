@@ -5,7 +5,7 @@ import IUser from '../interfaces/IUser';
 export default class UserService implements IService<IUser> {
   private db = User;
 
-  public async create(obj: User): Promise<User> {
+  public async create(obj: IUser): Promise<IUser> {
     const [user] = await this.db
       .findOrCreate({ where: { email: obj.email }, defaults: { ...obj } });
     if (!user) {
