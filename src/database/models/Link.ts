@@ -32,7 +32,7 @@ Link.init({
   sequelize: db,
   modelName: 'links',
   underscored: true,
-  timestamps: true,
+  timestamps: false,
 });
 
 Link.belongsTo(User, {
