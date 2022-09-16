@@ -1,6 +1,8 @@
 export enum ErrorTypes {
   EntityNotFound = 'EntityNotFound',
   InvalidId = 'InvalidId',
+  TokenNotFound = 'TokenNotFound',
+  EntityAlreadyExists = 'EntityAlreadyExists',
 }
 
 type ErrorResponseObject = {
@@ -19,6 +21,14 @@ export const errorCatalog: ErrorCatalog = {
   },
   InvalidId: {
     message: 'ID not found',
+    httpStatus: 400,
+  },
+  TokenNotFound: {
+    message: 'Token not found',
+    httpStatus: 400,
+  },
+  EntityAlreadyExists: {
+    message: 'Label already exists',
     httpStatus: 400,
   },
 };

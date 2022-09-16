@@ -2,7 +2,7 @@ import Link from '../database/models/Link';
 import ILink from '../interfaces/ILink';
 import IService from '../interfaces/IService';
 import { validationBodyLink } from '../utils/validateBody';
-import { validationIdParams } from '../utils/validateIdParams';
+import validationIdParams from '../utils/validateIdParams';
 
 export default class LinkService implements IService<ILink> {
   private db = Link;
@@ -10,10 +10,10 @@ export default class LinkService implements IService<ILink> {
   public async create(obj: ILink): Promise<ILink> {
     const objValid = validationBodyLink(obj);
 
-    const [link] = await this.db
+    const [link, boolean] = await this.db
       .findOrCreate({ where: { label: obj.label }, defaults: { ...objValid } });
-    if (!link) {
-      throw new Error('Label já existe');
+    if (!boolean) {
+      throw new Error('EntityAlreadyExists');
     }
     return link;
   }
@@ -22,8 +22,7 @@ export default class LinkService implements IService<ILink> {
     const numberId = validationIdParams(id);
     const objValid = validationBodyLink(obj);
 
-    const [rows] = await this.db.update({ ...objValid }, { where: { id: numberId } });
-    if (rows === 0) throw new Error('Error inesperado');
+    await this.db.update({ ...objValid }, { where: { id: numberId } });
     return { id: numberId, ...obj };
   }
 
@@ -36,7 +35,7 @@ export default class LinkService implements IService<ILink> {
     const numberId = validationIdParams(id);
     const link = await this.db.findByPk(numberId);
 
-    if (!link) throw new Error('Usuario não existe');
+    if (!link) throw new Error('EntityNotFound');
     return link;
   }
 

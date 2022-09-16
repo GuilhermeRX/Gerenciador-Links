@@ -1,17 +1,18 @@
 import User from '../database/models/User';
+import ILogin from '../interfaces/ILogin';
 import IService from '../interfaces/IService';
 import IUser from '../interfaces/IUser';
 import { validationBodyUser } from '../utils/validateBody';
-import { validationIdParams } from '../utils/validateIdParams';
+import validationIdParams from '../utils/validateIdParams';
 
 export default class UserService implements IService<IUser> {
   private db = User;
 
   public async create(obj: IUser): Promise<IUser> {
-    const [user] = await this.db
+    const [user, boolean] = await this.db
       .findOrCreate({ where: { email: obj.email }, defaults: { ...obj } });
-    if (!user) {
-      throw new Error('Usuario já existe');
+    if (!boolean) {
+      throw new Error('EntityAlreadyExists');
     }
     return user;
   }
@@ -20,8 +21,7 @@ export default class UserService implements IService<IUser> {
     const numberId = validationIdParams(id);
     const objValid = validationBodyUser(obj);
 
-    const [rows] = await this.db.update({ ...objValid }, { where: { id: numberId } });
-    if (rows === 0) throw new Error('Error inesperado');
+    await this.db.update({ ...objValid }, { where: { id: numberId } });
     return { id: numberId, ...obj };
   }
 
@@ -33,7 +33,13 @@ export default class UserService implements IService<IUser> {
   public async readOne(id: string): Promise<IUser> {
     const numberId = validationIdParams(id);
     const user = await this.db.findByPk(numberId);
-    if (!user) throw new Error('Usuario não existe');
+    if (!user) throw new Error('EntityNotFound');
+    return user;
+  }
+
+  public async readOneEmail(obj: ILogin): Promise<User | null> {
+    const user = await this.db.findOne({ where: { email: obj.email } });
+    if (!user) throw new Error('EntityNotFound');
     return user;
   }
 

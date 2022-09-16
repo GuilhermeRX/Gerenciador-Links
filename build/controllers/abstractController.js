@@ -5,8 +5,7 @@ class AbstractController {
         this._service = service;
     }
     async create(req, res) {
-        const objValid = this._service.validationBody(req.body);
-        const obj = await this._service.create(objValid);
+        const obj = await this._service.create(req.body);
         return res.status(201).json(obj);
     }
     async read(req, res) {
@@ -14,19 +13,15 @@ class AbstractController {
         return res.status(200).json(objs);
     }
     async readOne(req, res) {
-        const id = this._service.validationIdParams(req.params.id);
-        const obj = await this._service.readOne(id);
+        const obj = await this._service.readOne(req.params.id);
         return res.status(200).json(obj);
     }
     async update(req, res) {
-        const objValid = this._service.validationBody(req.body);
-        const id = this._service.validationIdParams(req.params.id);
-        const objUpdated = await this._service.update(id, objValid);
+        const objUpdated = await this._service.update(req.params.id, req.body);
         return res.status(200).json(objUpdated);
     }
     async delete(req, res) {
-        const id = this._service.validationIdParams(req.params.id);
-        await this._service.delete(id);
+        await this._service.delete(req.params.id);
         return res.status(204).end();
     }
 }
