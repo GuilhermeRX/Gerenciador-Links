@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
+require("express-async-errors");
+const error_middleware_1 = __importDefault(require("./middlewares/error.middleware"));
 const link_route_1 = __importDefault(require("./routes/link.route"));
 const user_route_1 = __importDefault(require("./routes/user.route"));
 class App {
@@ -14,7 +16,7 @@ class App {
         this.app.use((0, cors_1.default)());
         this.app.use('/user', user_route_1.default);
         this.app.use('/link', link_route_1.default);
-        this.app.get('/', (req, res) => res.status(200).json('oi'));
+        this.app.use(error_middleware_1.default);
     }
     start(PORT) {
         this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));

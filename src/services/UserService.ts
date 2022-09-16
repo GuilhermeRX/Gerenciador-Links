@@ -1,6 +1,8 @@
 import User from '../database/models/User';
 import IService from '../interfaces/IService';
 import IUser from '../interfaces/IUser';
+import { validationBodyUser } from '../utils/validateBody';
+import { validationIdParams } from '../utils/validateIdParams';
 
 export default class UserService implements IService<IUser> {
   private db = User;
@@ -14,10 +16,13 @@ export default class UserService implements IService<IUser> {
     return user;
   }
 
-  public async update(id: number, obj: IUser): Promise<IUser> {
-    const [rows] = await this.db.update({ ...obj }, { where: { id } });
+  public async update(id: string, obj: IUser): Promise<IUser> {
+    const numberId = validationIdParams(id);
+    const objValid = validationBodyUser(obj);
+
+    const [rows] = await this.db.update({ ...objValid }, { where: { id: numberId } });
     if (rows === 0) throw new Error('Error inesperado');
-    return { id, ...obj };
+    return { id: numberId, ...obj };
   }
 
   public async read(): Promise<IUser[]> {
@@ -25,14 +30,15 @@ export default class UserService implements IService<IUser> {
     return users;
   }
 
-  public async readOne(id: number): Promise<IUser> {
-    const user = await this.db.findByPk(id);
-
+  public async readOne(id: string): Promise<IUser> {
+    const numberId = validationIdParams(id);
+    const user = await this.db.findByPk(numberId);
     if (!user) throw new Error('Usuario não existe');
     return user;
   }
 
-  public async delete(id: number): Promise<void> {
-    await this.db.destroy({ where: { id } });
+  public async delete(id: string): Promise<void> {
+    const numberId = validationIdParams(id);
+    await this.db.destroy({ where: { id: numberId } });
   }
 }

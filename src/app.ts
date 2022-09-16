@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express from 'express';
+import 'express-async-errors';
 import errorMiddleware from './middlewares/error.middleware';
 import linkRoute from './routes/link.route';
 import userRoute from './routes/user.route';

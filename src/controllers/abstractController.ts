@@ -20,20 +20,17 @@ export default abstract class AbstractController<T> implements IController {
   }
 
   public async readOne(req: Request, res: Response): Promise<Response> {
-    const id = Number(req.params.id);
-    const obj = await this._service.readOne(id);
+    const obj = await this._service.readOne(req.params.id);
     return res.status(200).json(obj);
   }
 
   public async update(req: Request, res: Response): Promise<Response> {
-    const id = Number(req.params.id);
-    const obj = await this._service.update(id, req.body);
-    return res.status(200).json(obj);
+    const objUpdated = await this._service.update(req.params.id, req.body);
+    return res.status(200).json(objUpdated);
   }
 
   public async delete(req: Request, res: Response): Promise<Response> {
-    const id = Number(req.params.id);
-    await this._service.delete(id);
+    await this._service.delete(req.params.id);
     return res.status(204).end();
   }
 }

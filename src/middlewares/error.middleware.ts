@@ -2,6 +2,10 @@ import { ErrorRequestHandler } from 'express';
 import { errorCatalog, ErrorTypes } from '../errors/catalog';
 
 const errorMiddleware: ErrorRequestHandler = (err: Error, _req, res, _next) => {
+  if (err.name === 'ValidationError') {
+    return res.status(400).json({ message: err.message });
+  }
+
   const messageAsErrorType = err.message as keyof typeof ErrorTypes;
   const mappedError = errorCatalog[messageAsErrorType];
 
