@@ -1,5 +1,6 @@
 import { INTEGER, Model, STRING } from 'sequelize';
 import db from '.';
+import User from './User';
 
 class Link extends Model {
   id!: number;
@@ -28,5 +29,17 @@ Link.init({
   underscored: true,
   timestamps: true,
 })
+
+Link.belongsTo(User, {
+  foreignKey: 'userId',
+  as: 'user',
+});
+
+User.hasMany(Link, {
+  foreignKey: 'userId',
+  as: 'links',
+});
+
+
 
 export default Link;
