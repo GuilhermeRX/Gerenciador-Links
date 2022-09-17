@@ -3,7 +3,7 @@ import ILogin from '../interfaces/ILogin';
 
 const validationLogin = (obj: ILogin) => {
   const schema = Joi.object({
-    email: Joi.string().required(),
+    email: Joi.string().email().required(),
     password: Joi.string().required(),
   });
 

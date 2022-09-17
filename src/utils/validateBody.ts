@@ -16,7 +16,7 @@ export const validationBodyLink = (obj: ILink) => {
 
 export const validationBodyUser = (obj: IUser) => {
   const schema = Joi.object({
-    name: Joi.string().required(),
+    name: Joi.string().email().required(),
     email: Joi.string().required(),
     password: Joi.string().required(),
   });
