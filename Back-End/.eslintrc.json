@@ -24,13 +24,18 @@
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "**/tsconfig.json"
   },
   "plugins": [
     "@typescript-eslint",
     "sonarjs",
     "editorconfig",
     "mocha"
+  ],
+  "ignorePatterns": [
+    "**/node_modules/",
+    "**/src/database/migrations/",
+    "**/build/"
   ],
   "rules": {
     "no-underscore-dangle": "off",
