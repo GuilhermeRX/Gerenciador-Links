@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const User_1 = __importDefault(require("../database/models/User"));
 const validateBody_1 = require("../utils/validateBody");
 const validateIdParams_1 = __importDefault(require("../utils/validateIdParams"));
+const JwtService_1 = __importDefault(require("./JwtService"));
 class UserService {
     constructor() {
         this.db = User_1.default;
@@ -16,7 +17,8 @@ class UserService {
         if (!boolean) {
             throw new Error('EntityAlreadyExists');
         }
-        return user;
+        const token = JwtService_1.default.sign({ email: user.email, id: user.id });
+        return token;
     }
     async update(id, obj) {
         const numberId = (0, validateIdParams_1.default)(id);
