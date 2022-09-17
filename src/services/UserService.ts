@@ -4,17 +4,19 @@ import IService from '../interfaces/IService';
 import IUser from '../interfaces/IUser';
 import { validationBodyUser } from '../utils/validateBody';
 import validationIdParams from '../utils/validateIdParams';
+import JwtService from './JwtService';
 
 export default class UserService implements IService<IUser> {
   private db = User;
 
-  public async create(obj: IUser): Promise<IUser> {
+  public async create(obj: IUser): Promise<string> {
     const [user, boolean] = await this.db
       .findOrCreate({ where: { email: obj.email }, defaults: { ...obj } });
     if (!boolean) {
       throw new Error('EntityAlreadyExists');
     }
-    return user;
+    const token = JwtService.sign({ email: user.email, id: user.id });
+    return token;
   }
 
   public async update(id: string, obj: IUser): Promise<IUser> {
