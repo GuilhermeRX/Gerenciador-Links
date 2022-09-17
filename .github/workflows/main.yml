@@ -12,11 +12,8 @@ jobs:
           with:
             node-version: 14
 
-        - name: Sync package*.json on /Back-End
-          run: npm --prefix=./Back-End ci
-
         - name: Instalando as dependências.
           run:  npm install --prefix ./Back-End
 
         - name: Executando o lint para verificar se a erros.
-          run: npx eslint .
+          run: npx eslint ./Back-End
