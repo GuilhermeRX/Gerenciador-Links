@@ -3,9 +3,9 @@ require("dotenv/config");
 const config = {
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: 'Gerenciador',
+    database: process.env.DB_DATABASE,
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
-    dialect: 'mysql',
+    dialect: 'postgres',
 };
 module.exports = config;

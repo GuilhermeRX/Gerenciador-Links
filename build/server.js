@@ -5,5 +5,5 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const app_1 = __importDefault(require("./app"));
-const PORT = process.env.APP_PORT;
+const PORT = process.env.PORT;
 new app_1.default().start(PORT);
