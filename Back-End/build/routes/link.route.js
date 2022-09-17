@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const linkController_1 = __importDefault(require("../controllers/linkController"));
+const loginController_1 = __importDefault(require("../controllers/loginController"));
+const LinkService_1 = __importDefault(require("../services/LinkService"));
+const LoginService_1 = __importDefault(require("../services/LoginService"));
+const loginService = new LoginService_1.default();
+const loginController = new loginController_1.default(loginService);
+const linkRoute = (0, express_1.Router)();
+const linkService = new LinkService_1.default();
+const linkController = new linkController_1.default(linkService);
+linkRoute.use((req, res, next) => loginController.validationAuthenticator(req, res, next));
+linkRoute.post('/', (req, res) => linkController.create(req, res));
+linkRoute.get('/', (req, res) => linkController.read(req, res));
+linkRoute.get('/:id', (req, res) => linkController.readOne(req, res));
+linkRoute.put('/:id', (req, res) => linkController.update(req, res));
+linkRoute.delete('/:id', (req, res) => linkController.delete(req, res));
+exports.default = linkRoute;
