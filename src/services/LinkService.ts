@@ -3,13 +3,15 @@ import ILink from '../interfaces/ILink';
 import IService from '../interfaces/IService';
 import { validationBodyLink } from '../utils/validateBody';
 import validationIdParams from '../utils/validateIdParams';
+import UserService from './UserService';
 
 export default class LinkService implements IService<ILink> {
   private db = Link;
+  private userService = new UserService();
 
   public async create(obj: ILink): Promise<ILink> {
     const objValid = validationBodyLink(obj);
-
+    await this.userService.readOne(objValid.userId);
     const [link, boolean] = await this.db
       .findOrCreate({ where: { label: obj.label }, defaults: { ...objValid } });
     if (!boolean) {
@@ -21,7 +23,6 @@ export default class LinkService implements IService<ILink> {
   public async update(id: string, obj: ILink): Promise<ILink> {
     const numberId = validationIdParams(id);
     const objValid = validationBodyLink(obj);
-
     await this.db.update({ ...objValid }, { where: { id: numberId } });
     return { id: numberId, ...obj };
   }

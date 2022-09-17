@@ -24,5 +24,5 @@ exports.errorCatalog = {
     EntityAlreadyExists: {
         message: 'Label already exists',
         httpStatus: 400,
-    }
+    },
 };

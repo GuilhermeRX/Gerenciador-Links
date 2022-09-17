@@ -6,7 +6,7 @@ export const validationBodyLink = (obj: ILink) => {
   const schema = Joi.object({
     url: Joi.string().required(),
     label: Joi.string().required(),
-    userId: Joi.number().required().integer().positive(),
+    userId: Joi.number().integer().positive(),
   });
 
   const { error, value } = schema.validate(obj);

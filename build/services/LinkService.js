@@ -6,12 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Link_1 = __importDefault(require("../database/models/Link"));
 const validateBody_1 = require("../utils/validateBody");
 const validateIdParams_1 = __importDefault(require("../utils/validateIdParams"));
+const UserService_1 = __importDefault(require("./UserService"));
 class LinkService {
     constructor() {
         this.db = Link_1.default;
+        this.userService = new UserService_1.default();
     }
     async create(obj) {
         const objValid = (0, validateBody_1.validationBodyLink)(obj);
+        await this.userService.readOne(objValid.userId);
         const [link, boolean] = await this.db
             .findOrCreate({ where: { label: obj.label }, defaults: { ...objValid } });
         if (!boolean) {

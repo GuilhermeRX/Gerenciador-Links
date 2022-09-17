@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validationLogin = void 0;
 const joi_1 = __importDefault(require("joi"));
 const validationLogin = (obj) => {
     const schema = joi_1.default.object({
@@ -15,4 +14,4 @@ const validationLogin = (obj) => {
         throw error;
     return value;
 };
-exports.validationLogin = validationLogin;
+exports.default = validationLogin;

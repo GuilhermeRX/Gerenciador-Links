@@ -9,7 +9,7 @@ const validationBodyLink = (obj) => {
     const schema = joi_1.default.object({
         url: joi_1.default.string().required(),
         label: joi_1.default.string().required(),
-        userId: joi_1.default.number().required().integer().positive(),
+        userId: joi_1.default.number().integer().positive(),
     });
     const { error, value } = schema.validate(obj);
     if (error)
