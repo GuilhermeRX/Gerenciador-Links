@@ -9,7 +9,7 @@ export default class LoginService {
     const user = await this.userService.readOneEmail(obj);
 
     if (!user || user.password !== obj.password) {
-      const error = new Error('Username or password invalid');
+      const error = new Error('Email or password invalid');
       error.name = 'ValidationError';
       throw error;
     }
