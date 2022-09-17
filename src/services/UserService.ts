@@ -14,7 +14,7 @@ export default class UserService implements IService<IUser> {
     const [user, boolean] = await this.db
       .findOrCreate({ where: { email: obj.email }, defaults: { ...obj } });
     if (!boolean) {
-      throw new Error('EntityAlreadyExists');
+      throw new Error('UserAlreadyExists');
     }
     const token = JwtService.sign({ email: user.email, id: user.id });
     return { token };
