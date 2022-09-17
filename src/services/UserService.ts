@@ -11,8 +11,9 @@ export default class UserService implements IService<IUser> {
   private db = User;
 
   public async create(obj: IUser): Promise<IToken> {
+    const objValid = validationBodyUser(obj);
     const [user, boolean] = await this.db
-      .findOrCreate({ where: { email: obj.email }, defaults: { ...obj } });
+      .findOrCreate({ where: { email: objValid.email }, defaults: { ...objValid } });
     if (!boolean) {
       throw new Error('UserAlreadyExists');
     }

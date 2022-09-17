@@ -12,13 +12,14 @@ class UserService {
         this.db = User_1.default;
     }
     async create(obj) {
+        const objValid = (0, validateBody_1.validationBodyUser)(obj);
         const [user, boolean] = await this.db
-            .findOrCreate({ where: { email: obj.email }, defaults: { ...obj } });
+            .findOrCreate({ where: { email: objValid.email }, defaults: { ...objValid } });
         if (!boolean) {
-            throw new Error('EntityAlreadyExists');
+            throw new Error('UserAlreadyExists');
         }
         const token = JwtService_1.default.sign({ email: user.email, id: user.id });
-        return token;
+        return { token };
     }
     async update(id, obj) {
         const numberId = (0, validateIdParams_1.default)(id);

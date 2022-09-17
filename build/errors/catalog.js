@@ -6,6 +6,7 @@ var ErrorTypes;
     ErrorTypes["EntityNotFound"] = "EntityNotFound";
     ErrorTypes["InvalidId"] = "InvalidId";
     ErrorTypes["TokenNotFound"] = "TokenNotFound";
+    ErrorTypes["UserAlreadyExists"] = "UserAlreadyExists";
     ErrorTypes["EntityAlreadyExists"] = "EntityAlreadyExists";
 })(ErrorTypes = exports.ErrorTypes || (exports.ErrorTypes = {}));
 exports.errorCatalog = {
@@ -22,7 +23,11 @@ exports.errorCatalog = {
         httpStatus: 400,
     },
     EntityAlreadyExists: {
-        message: 'Label already exists',
+        message: 'Labe already exists',
+        httpStatus: 400,
+    },
+    UserAlreadyExists: {
+        message: 'User already exists',
         httpStatus: 400,
     },
 };

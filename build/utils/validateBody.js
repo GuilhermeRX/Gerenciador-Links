@@ -20,7 +20,7 @@ exports.validationBodyLink = validationBodyLink;
 const validationBodyUser = (obj) => {
     const schema = joi_1.default.object({
         name: joi_1.default.string().required(),
-        email: joi_1.default.string().required(),
+        email: joi_1.default.string().email().required(),
         password: joi_1.default.string().required(),
     });
     const { error, value } = schema.validate(obj);
