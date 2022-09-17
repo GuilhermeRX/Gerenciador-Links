@@ -29,7 +29,7 @@ export const errorCatalog: ErrorCatalog = {
     httpStatus: 400,
   },
   EntityAlreadyExists: {
-    message: 'Labe already exists',
+    message: 'Label already exists',
     httpStatus: 400,
   },
   UserAlreadyExists: {
