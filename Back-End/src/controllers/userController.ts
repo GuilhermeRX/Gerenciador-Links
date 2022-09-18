@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import JwtService from 'src/services/JwtService';
 import IService from '../interfaces/IService';
 import IUser from '../interfaces/IUser';
+import JwtService from '../services/JwtService';
 import AbstractController from './abstractController';
 
 export default class UserController extends AbstractController<IUser> {
