@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FormAddLink from '../../Components/FormAddLink';
 import Header from '../../Components/Header';
 import AppContext from '../../context/AppContext';
 import { requestData, setToken } from '../../services/fetchAPI';
@@ -27,6 +28,7 @@ export default function Home() {
   return (
     <PageHome colors={colors}>
       <Header />
+      <FormAddLink />
     </PageHome>
   )
 };

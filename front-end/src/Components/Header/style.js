@@ -6,6 +6,9 @@ export const DivHeader = styled.header`
   grid-template-columns: 1fr 2fr;
   padding: 24px;
   background-color: ${(props) => props.colors.tertiary};
+  position: absolute;
+  top: 0;
+  left: 0;
 `
 
 export const UserContainer = styled.div`
