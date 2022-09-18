@@ -9,7 +9,9 @@ export const setToken = (token) => {
 };
 
 export const requestData = async (endpoint) => {
-  const { data } = await api.get(endpoint);
+  const { data } = await api.get(endpoint).catch((error) => {
+    return error.response
+  });
   return data;
 };
 
