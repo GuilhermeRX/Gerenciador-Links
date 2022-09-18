@@ -55,14 +55,15 @@ export const Link = styled.div`
   div {
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: flex-end;
+    align-self: flex-end;
+    z-index: 1;
+    width: max-content;
   }
 
   div svg {
     margin-top: 8px;
-    margin-right: 4px;
-    font-size: 18px;
+    font-size: 22px;
     color: ${(props) => props.colors.highlight}
   }
 `;

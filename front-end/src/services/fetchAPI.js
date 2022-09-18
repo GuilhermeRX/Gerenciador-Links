@@ -22,6 +22,14 @@ export const updateData = async (endpoint, obj) => {
   return data;
 };
 
+export const deleteData = async (endpoint) => {
+  const { data } = await api.delete(endpoint).catch((error) => {
+    return error.response
+  });
+
+  return data;
+}
+
 
 
 export const requestLogin = async (endpoint, body) => {
