@@ -74,7 +74,6 @@ export const DivBtnCrieSuaConta = styled.div`
   }
 `
 
-
 export const DivCreateUser = styled.div`
   width: 100%;
   display: flex;

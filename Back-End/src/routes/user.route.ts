@@ -15,7 +15,7 @@ userRoute.post('/', (req, res) => userController.create(req, res));
 
 userRoute.use((req, res, next) => loginController.validationAuthenticator(req, res, next));
 userRoute.get('/', (req, res) => userController.read(req, res));
-userRoute.get('/:id', (req, res) => userController.readOne(req, res));
+userRoute.post('/', (req, res) => userController.readOne(req, res));
 userRoute.put('/:id', (req, res) => userController.update(req, res));
 userRoute.delete('/:id', (req, res) => userController.delete(req, res));
 
