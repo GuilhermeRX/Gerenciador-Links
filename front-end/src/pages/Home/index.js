@@ -1,10 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../../Components/Header';
 import AppContext from '../../context/AppContext';
 import { requestData, setToken } from '../../services/fetchAPI';
+import { PageHome } from './style';
 
 export default function Home() {
-  const { userInfo, setUserInfo } = useContext(AppContext)
+  const { setUserInfo, colors } = useContext(AppContext)
   const navigate = useNavigate()
   useEffect(() => {
     async function handleUser() {
@@ -23,8 +25,8 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
-      home
-    </div>
+    <PageHome colors={colors}>
+      <Header />
+    </PageHome>
   )
 };
