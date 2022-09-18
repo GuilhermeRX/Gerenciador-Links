@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import JwtService from 'src/services/JwtService';
 import ILink from '../interfaces/ILink';
 import IService from '../interfaces/IService';
+import JwtService from '../services/JwtService';
 import AbstractController from './abstractController';
 
 export default class LinkController extends AbstractController<ILink> {

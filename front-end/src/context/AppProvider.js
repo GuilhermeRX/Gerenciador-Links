@@ -3,6 +3,7 @@ import AppContext from "./AppContext";
 
 export default function AppProvider({ children }) {
   const [userInfo, setUserInfo] = useState({});
+  const [list, setList] = useState([]);
 
   const fontColors = {
     primary: '#AEAEAE',
@@ -23,6 +24,8 @@ export default function AppProvider({ children }) {
     setUserInfo,
     colors,
     fontColors,
+    list,
+    setList,
   };
 
   return (
