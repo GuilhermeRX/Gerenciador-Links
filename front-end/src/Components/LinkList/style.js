@@ -35,6 +35,7 @@ export const Link = styled.div`
   border-radius: 8px;
   padding: 8px;
   margin: 6px;
+  cursor: pointer;
 
   span {
     font-style: normal;

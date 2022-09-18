@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import FormAddLink from '../../Components/FormAddLink';
 import Header from '../../Components/Header';
 import LinkList from '../../Components/LinkList';
+import Modal from '../../Components/Modal';
 import AppContext from '../../context/AppContext';
 import { requestData, setToken } from '../../services/fetchAPI';
 import { PageHome } from './style';
@@ -31,6 +32,7 @@ export default function Home() {
       <Header />
       <FormAddLink />
       <LinkList />
+      <Modal />
     </PageHome>
   )
 };
