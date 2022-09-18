@@ -14,6 +14,10 @@ export const requestData = async (endpoint) => {
 };
 
 export const requestLogin = async (endpoint, body) => {
-  const { data } = await api.post(endpoint, body);
+  const { data } = await api.post(endpoint, body).catch((error) => {
+    if (error.response) {
+      return error.response
+    }
+  });
   return data;
 };
