@@ -7,6 +7,7 @@ export default function AppProvider({ children }) {
   const fontColors = {
     primary: '#AEAEAE',
     secondary: '#0F1527',
+    tertiary: '#B4BAC5',
     btn: '#FFFFFF',
   }
 

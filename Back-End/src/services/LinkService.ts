@@ -27,8 +27,8 @@ export default class LinkService implements IService<ILink> {
     return { id: numberId, ...obj };
   }
 
-  public async read(): Promise<ILink[]> {
-    const links = await this.db.findAll();
+  public async read(id: number): Promise<ILink[]> {
+    const links = await this.db.findAll({ where: { id } });
     return links;
   }
 
