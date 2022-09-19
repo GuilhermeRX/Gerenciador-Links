@@ -30,6 +30,12 @@ export const deleteData = async (endpoint) => {
   return data;
 }
 
+export const createData = async (endpoint, obj) => {
+  const { data } = await api.post(endpoint, obj).catch((error) => {
+    return error.response
+  });
+  return data;
+};
 
 
 export const requestLogin = async (endpoint, body) => {
