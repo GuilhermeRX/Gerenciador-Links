@@ -26,6 +26,7 @@ export default function Home() {
       return navigate('/');
     };
     handleUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
