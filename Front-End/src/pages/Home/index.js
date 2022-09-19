@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import FormAddLink from '../../Components/FormAddLink';
 import Header from '../../Components/Header';
 import LinkList from '../../Components/LinkList';
@@ -33,6 +34,7 @@ export default function Home() {
       <FormAddLink />
       <LinkList />
       <Modal />
+      <ToastContainer />
     </PageHome>
   )
 };

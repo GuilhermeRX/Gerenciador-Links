@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
 import { createData } from "../../services/fetchAPI";
-import { notifySuccess } from "../../services/notify";
+import { notifyError, notifySuccess } from "../../services/notify";
 import { Btn, InputText, Label } from "../Form/style";
 import { ContainerForm } from "./style";
 
@@ -15,11 +15,13 @@ export default function FormAddLink() {
     const body = { url, label, userId: userInfo.id }
     const response = await createData('/link', body);
     if (response.error) {
-      return console.log(response.error);
+      return notifyError(response.error);
     };
 
     await handleList();
     notifySuccess('Adicionado com sucesso!')
+    setLabel('');
+    setUrl('');
   };
 
   return (

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { IoTrashOutline } from 'react-icons/io5';
 import AppContext from "../../context/AppContext";
 import { deleteData } from "../../services/fetchAPI";
+import { notifyTrash } from "../../services/notify";
 import { Link, List, ListContainer } from "./style";
 export default function LinkList() {
   const {
@@ -30,6 +31,7 @@ export default function LinkList() {
     if (response.error) {
       return console.log(response.error);
     };
+    notifyTrash('Removido com sucesso')
     handleList();
   }
 

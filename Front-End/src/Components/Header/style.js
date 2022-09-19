@@ -28,7 +28,7 @@ export const UserInfo = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  color: ${(props) => props.fontColors.primary};
+  color: ${(props) => props.fontColors.secondary};
 
   h4 {
     line-height: 130%;
@@ -49,7 +49,7 @@ export const DivUserImg = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  color: ${(props) => props.fontColors.primary};
+  color: ${(props) => props.fontColors.secondary};
   svg {
     font-size: 32px;
   }
