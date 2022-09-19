@@ -11,12 +11,12 @@ const userRoute = Router();
 const userService = new UserService();
 const userController = new UserController(userService);
 
-userRoute.post('/', (req, res) => userController.create(req, res));
+userRoute.post('/user', (req, res) => userController.create(req, res));
 
 userRoute.use((req, res, next) => loginController.validationAuthenticator(req, res, next));
-userRoute.get('/', (req, res) => userController.read(req, res));
-userRoute.get('/info', (req, res) => userController.readOne(req, res));
-userRoute.put('/:id', (req, res) => userController.update(req, res));
-userRoute.delete('/:id', (req, res) => userController.delete(req, res));
+userRoute.get('/user', (req, res) => userController.read(req, res));
+userRoute.get('/user/info', (req, res) => userController.readOne(req, res));
+userRoute.put('/user/:id', (req, res) => userController.update(req, res));
+userRoute.delete('/user/:id', (req, res) => userController.delete(req, res));
 
 export default userRoute;

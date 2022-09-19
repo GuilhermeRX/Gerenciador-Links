@@ -12,10 +12,10 @@ const linkService = new LinkService();
 const linkController = new LinkController(linkService);
 
 linkRoute.use((req, res, next) => loginController.validationAuthenticator(req, res, next));
-linkRoute.post('/', (req, res) => linkController.create(req, res));
-linkRoute.get('/', (req, res) => linkController.read(req, res));
-linkRoute.get('/:id', (req, res) => linkController.readOne(req, res));
-linkRoute.put('/:id', (req, res) => linkController.update(req, res));
-linkRoute.delete('/:id', (req, res) => linkController.delete(req, res));
+linkRoute.post('/link', (req, res) => linkController.create(req, res));
+linkRoute.get('/link', (req, res) => linkController.read(req, res));
+linkRoute.get('/link/:id', (req, res) => linkController.readOne(req, res));
+linkRoute.put('/link/:id', (req, res) => linkController.update(req, res));
+linkRoute.delete('/link/:id', (req, res) => linkController.delete(req, res));
 
 export default linkRoute;
