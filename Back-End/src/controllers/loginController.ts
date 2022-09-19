@@ -6,7 +6,6 @@ import validationLogin from '../utils/validateLogin';
 export default class LoginController {
   jwtService = JwtService;
   constructor(private service: LoginService) { }
-
   public async authenticator(req: Request, res: Response) {
     validationLogin(req.body);
     const token = await this.service.authenticator(req.body);

@@ -6,7 +6,7 @@ import errorMiddleware from './middlewares/error.middleware';
 import linkRoute from './routes/link.route';
 import loginRoute from './routes/login.route';
 import userRoute from './routes/user.route';
-import swaggerFile from './swagger_output';
+import swaggerFile from './swaggerFile.json';
 
 export default class App {
   public app: express.Express;
