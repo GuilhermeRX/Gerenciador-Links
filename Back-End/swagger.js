@@ -17,7 +17,7 @@ const doc = {
     que fornece dados para a aplicação: https://linkmanagerdev.netlify.app/
     Desenvolvido por: Luiz Guilherme Avelino.`,
   },
-  host: 'https://gerenciador-dev.herokuapp.com/',
+  host: 'https://gerenciador-dev.herokuapp.com',
   basePath: '/',
   schemes: ['http', 'https'],
   consumes: ['application/json'],
