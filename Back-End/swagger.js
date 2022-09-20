@@ -13,8 +13,8 @@ const doc = {
   info: {
     version: '1.0.0',
     title: 'LinkManager API RESTfull',
-    description: `Documentação da API LinkManager,
-    que fornece dados para a aplicação: https://linkmanagerdev.netlify.app/
+    description: `Documentação da API LinkManager
+    Fornece dados para a aplicação: https://linkmanagerdev.netlify.app/
     Desenvolvido por: Luiz Guilherme Avelino.`,
   },
   host: 'https://gerenciador-dev.herokuapp.com',
