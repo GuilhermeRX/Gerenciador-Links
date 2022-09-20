@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv/config');
 const swaggerAutogen = require('swagger-autogen')({ language: 'pt-BR' });
 
 const outputFile = './src/swaggerFile.json';
@@ -17,7 +18,7 @@ const doc = {
     Fornece dados para a aplicação: https://linkmanagerdev.netlify.app/
     Desenvolvido por: Luiz Guilherme Avelino.`,
   },
-  host: 'gerenciador-dev.herokuapp.com',
+  host: `localhost:${process.env.PORT}`,
   basePath: '/',
   schemes: ['http', 'https'],
   consumes: ['application/json'],
