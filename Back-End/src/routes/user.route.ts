@@ -21,7 +21,7 @@ userRoute.post('/user', (req, res) => (
     }
     #swagger.responses[201] = {
       description: 'User criado com sucesso.',
-      schema: { $ref: '#/definitions/User' }
+      schema: { $ref: '#/definitions/LoginResponse' }
   } */
   userController.create(req, res)
 ));
