@@ -9,7 +9,9 @@
     "swagger-autogen": "node swagger.js",
     "db:create": "npx sequelize-cli db:drop && npx sequelize-cli db:create",
     "db:populate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx -y tsc && npm run db:create && npm run db:populate",
+    "test:dev": "mocha -r ts-node/register src/tests/integration/*.test.ts --exit -t 60000",
+    "test:coverage": "nyc npm run test:dev"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "@types/jsonwebtoken": "^8.5.9",
     "and": "^0.0.3",
     "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
@@ -40,7 +43,8 @@
     "sequelize": "^6.22.0",
     "sinon": "^14.0.0",
     "swagger-autogen": "^2.21.10",
-    "swagger-ui-express": "^4.5.0"
+    "swagger-ui-express": "^4.5.0",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
