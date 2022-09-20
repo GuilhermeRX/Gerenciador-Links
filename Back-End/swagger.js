@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const swaggerAutogen = require('swagger-autogen')({ language: 'pt-BR' });
 
@@ -12,7 +13,7 @@ const doc = {
   info: {
     version: '1.0.0',
     title: 'LinkManager API RESTfull',
-    description: `Documentação da API Link Manager,
+    description: `Documentação da API LinkManager,
     que fornece dados para a aplicação: https://linkmanagerdev.netlify.app/
     Desenvolvido por: Luiz Guilherme Avelino.`,
   },
@@ -63,6 +64,10 @@ const doc = {
       userId: 2,
     },
     UserArray: [{ $ref: '#/definitions/User' }],
+    LinkArray: [{ $ref: '#/definitions/Link' }],
+    LoginResponse: {
+      token: 'syJhbGciOiJIUzI1NiIsInR5cCI6IkfXVCJ8.eyJlbWFpbCI6InZpdmlAdGVzdC5jb20iLCJpZCI6MiwiaWF0IjoxNjYzNjI5ODgzfQ.e355HIy1JctDtpAaNi8pgQSEELmVH4o_nujUL2qBz6s',
+    },
   },
 };
 

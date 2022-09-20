@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "LinkManager API RESTfull",
-    "description": "Documentação da API Link Manager,\n    que fornece dados para a aplicação: https://linkmanagerdev.netlify.app/\n    Desenvolvido por: Luiz Guilherme Avelino."
+    "description": "Documentação da API LinkManager,\n    que fornece dados para a aplicação: https://linkmanagerdev.netlify.app/\n    Desenvolvido por: Luiz Guilherme Avelino."
   },
   "host": "localhost:3001",
   "basePath": "/",
@@ -34,11 +34,25 @@
   "paths": {
     "/login": {
       "post": {
-        "description": "",
-        "parameters": [],
+        "tags": [
+          "Login"
+        ],
+        "description": "Endpoint para se autenticar na plataforma.",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Login efetuado com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/LoginResponse"
+            }
           }
         }
       }
@@ -196,12 +210,43 @@
     },
     "/link": {
       "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "tags": [
+          "Link"
+        ],
+        "description": "Endpoint para cadastrar um novo link.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateLink"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Link criado com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/Link"
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "get": {
-        "description": "",
+        "tags": [
+          "Link"
+        ],
+        "description": "Endpoint para obter todos os links.",
         "parameters": [
           {
             "name": "authorization",
@@ -211,47 +256,122 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Listagem de links obtida com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/LinkArray"
+            }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/link/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Link"
+        ],
+        "description": "Endpoint para obter um link específico através do ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string",
+            "description": "ID do link."
+          },
+          {
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Link obtido com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/Link"
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Link"
+        ],
+        "description": "Endpoint para atualizar os dados de um link.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string",
+            "description": "ID do link."
+          },
+          {
+            "name": "authorization",
+            "in": "header",
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateLink"
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Link editado com sucesso.",
+            "schema": {
+              "$ref": "#/definitions/Link"
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Link"
+        ],
+        "description": "Endpoint para deletar um link.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string",
+            "description": "ID do link."
+          },
+          {
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "Link deletado com sucesso."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
@@ -349,6 +469,21 @@
       "type": "array",
       "items": {
         "$ref": "#/definitions/User"
+      }
+    },
+    "LinkArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Link"
+      }
+    },
+    "LoginResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "example": "syJhbGciOiJIUzI1NiIsInR5cCI6IkfXVCJ8.eyJlbWFpbCI6InZpdmlAdGVzdC5jb20iLCJpZCI6MiwiaWF0IjoxNjYzNjI5ODgzfQ.e355HIy1JctDtpAaNi8pgQSEELmVH4o_nujUL2qBz6s"
+        }
       }
     }
   }
