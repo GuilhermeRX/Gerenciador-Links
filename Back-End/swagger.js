@@ -18,7 +18,6 @@ const doc = {
     Fornece dados para a aplicação: https://linkmanagerdev.netlify.app/
     Desenvolvido por: Luiz Guilherme Avelino.`,
   },
-  host: `localhost:${process.env.PORT}`,
   basePath: '/',
   schemes: ['http', 'https'],
   consumes: ['application/json'],
