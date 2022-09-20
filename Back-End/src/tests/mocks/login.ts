@@ -6,6 +6,11 @@ export const mockLogin: ILogin = {
   password: '123456',
 };
 
+export const mockLoginInvalid: ILogin = {
+  email: 'anyemailtest.com',
+  password: '123456',
+};
+
 export const mockUserLogin: IUser = {
   id: 2,
   name: 'any_name',
