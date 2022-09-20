@@ -5,7 +5,7 @@
     "title": "LinkManager API RESTfull",
     "description": "Documentação da API LinkManager,\n    que fornece dados para a aplicação: https://linkmanagerdev.netlify.app/\n    Desenvolvido por: Luiz Guilherme Avelino."
   },
-  "host": "localhost:3001",
+  "host": "https://gerenciador-dev.herokuapp.com/",
   "basePath": "/",
   "tags": [
     {
