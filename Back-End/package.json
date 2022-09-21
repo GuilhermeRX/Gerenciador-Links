@@ -10,8 +10,8 @@
     "db:create": "npx sequelize-cli db:drop && npx sequelize-cli db:create",
     "db:populate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "dev": "npx -y tsc && npm run db:create && npm run db:populate",
-    "test:dev": "mocha -r ts-node/register src/tests/integration/*.test.ts --exit -t 60000",
-    "test:coverage": "nyc npm run test:dev"
+    "test": "mocha -r ts-node/register src/tests/integration/*.test.ts --exit -t 60000",
+    "test:coverage": "nyc npm test"
   },
   "repository": {
     "type": "git",

@@ -35,7 +35,8 @@
   "ignorePatterns": [
     "**/node_modules/",
     "**/src/database/migrations/",
-    "**/build/"
+    "**/build/",
+    "**/tests/"
   ],
   "rules": {
     "no-underscore-dangle": "off",
