@@ -34,4 +34,4 @@ jobs:
           run:  npm install --prefix ./Back-End
 
         - name: Executando os testes.
-          run: npm test
+          run: npm test --prefix ./Back-End
