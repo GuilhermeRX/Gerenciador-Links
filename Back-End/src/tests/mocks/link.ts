@@ -1,9 +1,9 @@
-import ILink from "src/interfaces/ILink";
+import ILink from "../../interfaces/ILink";
 
 export const mockLink: ILink = {
   id: 1,
-  url: "www.flamengo.com",
-  label: "Site Oficial do Flamengo",
+  url: "www.betrybe.com",
+  label: "Site da Trybe",
   userId: 2
 }
 
