@@ -70,6 +70,6 @@ describe('Testa a rota de links', function () {
       .delete('/link/1')
       .set('authorization', 'any_token');
     const link = response.body;
-    expect(response.status).to.equal(201);
+    expect(response.status).to.equal(204);
   });
 });
