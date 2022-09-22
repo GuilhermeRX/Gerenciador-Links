@@ -32,6 +32,7 @@
         <li><a href="#instalação">Instalação</a></li>
       </ul>
     </li>
+    <li><a href="#api-endpoints">API Endpoints</a></li>
     <li><a href="#futuras-implementações">Futuras Implementações</a></li>
     <li><a href="#contribuições">Contribuições</a></li>
     <li><a href="#contatos">Contatos</a></li>
@@ -103,7 +104,11 @@ Para rodar a aplicação localmente, siga estas etapas.
 <br />
 
 ![testes-screen]
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
+<br />
 
+## API Endpoints
+Você pode conhecer melhor a documentação da API e seus endpoints [Neste Link!](https://gerenciador-dev.herokuapp.com/doc/)
 <p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 ## Futuras implementações
