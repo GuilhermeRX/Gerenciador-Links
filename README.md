@@ -40,7 +40,7 @@
 
 ## Sobre o Projeto
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![LinkManager][screenshot]](https://linkmanagerdev.netlify.app/)
 Este repositório conta com duas aplicações, o primeiro é o Back-End onde temos uma API que foi desenvolvida seguindo os melhores padrões de código, como arquitetura MSC, Eslint, clean code, programação orientada a objetos e principios SOLID, além disso contamos com um processo de automação chamado CI/CD(Integração contínua/Entrega contínua), utilizando Actions. Uma CI é realizada com sucesso quando novas mudanças no código são desenvolvidas e testadas, após esses passos, temos o CD que realizará o deploy da aplicação automaticamente. Em nossa aplicação Front-End temos uma interface que foi pensada para proporcionar a melhor experiência possivel para a pessoa usuária, também seguindo os melhores padrões de código e utilizando um dos melhores frameworks do mercado.
 <p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
@@ -100,6 +100,9 @@ Para rodar a aplicação localmente, siga estas etapas.
    npm test
    ```
 * A saida deve ser a seguinte:
+<br />
+
+![testes-screen]
 
 <p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
@@ -133,11 +136,8 @@ Luiz Guilherme Avelino - [LinkedIn](https://www.linkedin.com/in/luizguilhermeave
 <p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: images/screenshot.png
+[screenshot]: images/home.png
+[testes-screen]: images/testes.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [JavaScript-url]: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript
