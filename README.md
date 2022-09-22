@@ -29,6 +29,7 @@
     <li>
       <a href="#começando">Começando</a>
       <ul>
+        <li><a href="#pré-requisitos">Pré-requisitos</a></li>
         <li><a href="#instalação">Instalação</a></li>
       </ul>
     </li>
@@ -79,6 +80,8 @@ Este repositório conta com duas aplicações, o primeiro é o Back-End onde tem
   cd ./Back-End/src/database/config/
   ```
 * Abra o arquivo config/database.ts e faça as modificações necessárias na chave 'dialect' na linha 10.
+
+![dialect-screen]
 
 Para rodar a aplicação localmente, siga estas etapas.
 
@@ -163,6 +166,7 @@ Luiz Guilherme Avelino - [LinkedIn](https://www.linkedin.com/in/luizguilhermeave
 
 [screenshot]: images/home.png
 [testes-screen]: images/testes.png
+[dialect-screen]: images/dialect.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [JavaScript-url]: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript
