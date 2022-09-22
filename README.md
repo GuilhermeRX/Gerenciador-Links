@@ -4,7 +4,7 @@
 <h3 align="center">LinkManager</h3>
 
   <p align="center">
-    Aplicação FullStack capaz de gerenciar links, com a URL e um título/label, os dados desses links ficam armazenados em um banco de dados na nuvem. O usuário é capaz de criar uma conta e fazer login na plataforma onde pode gerenciar todos os seus links através de uma interface bastante intuitiva e pensada para propor uma melhor experiência para o usuário.
+    Aplicação FullStack capaz de gerenciar links, com a URL e um título/label, os dados desses links ficam armazenados em um banco de dados na nuvem. O usuário é capaz de criar uma conta e fazer login na plataforma utilizando autenticação JWT e pode gerenciar todos os seus links através de uma interface bastante intuitiva e pensada para propor uma melhor experiência para o usuário.
     <br />
     <a href="https://gerenciador-dev.herokuapp.com/doc/"><strong>Explore a documentação da API»</strong></a>
     <br />
