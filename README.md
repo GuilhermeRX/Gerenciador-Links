@@ -70,6 +70,16 @@ Este repositório conta com duas aplicações, o primeiro é o Back-End onde tem
 
 ## Começando
 
+### Pré-requisitos
+
+1. É necessário que você tenha um banco de dados relacional ativo
+2. Configurar o dialeto do sequelize de acordo com o banco de dados que estiver utilizando.
+* Acesse o diretório.
+  ```sh
+  cd ./Back-End/src/database/config/
+  ```
+* Abra o arquivo config/database.ts e faça as modificações necessárias na chave 'dialect' na linha 10.
+
 Para rodar a aplicação localmente, siga estas etapas.
 
 ### Instalação
