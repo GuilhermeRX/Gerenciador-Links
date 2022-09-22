@@ -6,10 +6,8 @@
   "scripts": {
     "build": "npx -y tsc",
     "start": "node ./build/src/server.js",
-    "swagger-autogen": "node swagger.js",
     "db:create": "npx sequelize-cli db:drop && npx sequelize-cli db:create",
-    "db:populate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "dev": "npx -y tsc && npm run db:create && npm run db:populate",
+    "dev": "npx -y tsc && npm run db:create && npx sequelize db:migrate",
     "test": "mocha -r ts-node/register src/tests/integration/*.test.ts --exit -t 60000",
     "test:coverage": "nyc npm test"
   },
