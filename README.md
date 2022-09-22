@@ -104,6 +104,16 @@ Para rodar a aplicação localmente, siga estas etapas.
 <br />
 
 ![testes-screen]
+
+6. Ainda no repositório ./Back-End execute o comando para iniciar o servidor. 
+   ```sh
+   npm start
+   ```
+7. Agora em ./Front-End execute o comando para iniciar a aplicação React. 
+   ```sh
+   npm start
+   ```
+
 <p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 <br />
 
