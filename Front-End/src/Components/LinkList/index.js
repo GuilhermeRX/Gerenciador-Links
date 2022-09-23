@@ -4,7 +4,7 @@ import AppContext from "../../context/AppContext";
 import { deleteData } from "../../services/fetchAPI";
 import { notifyTrash } from "../../services/notify";
 import BtnCopy from "../Copy";
-import { Link, List, ListContainer } from "./style";
+import { Link, List, ListContainer, NotLink, Title } from "./style";
 export default function LinkList() {
   const {
     fontColors,
@@ -43,7 +43,8 @@ export default function LinkList() {
 
   return (
     <ListContainer fontColors={fontColors} colors={colors}>
-      <span>Gerencie seus links.</span>
+      <Title fontColors={fontColors} colors={colors}>Gerencie seus links.</Title>
+      {list.length === 0 && <NotLink>Nenhum link cadastrado.</NotLink>}
       <List>
         {list.map((obj, index) => (
           <Link

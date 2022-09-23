@@ -11,8 +11,24 @@ export const ListContainer = styled.div`
   span {
     text-align: center;
     padding: 8px;
+    width: 100%;
     color: ${(props) => props.colors.highlight};
   }
+`;
+
+export const NotLink = styled.p`
+  margin-top: 24px;
+  font-weight: 100;
+  font-size: 14px;
+`
+
+export const Title = styled.span`
+  text-align: center;
+  padding: 8px;
+  background-color: ${(props) => props.colors.tertiary};
+  width: 100%;
+  color: ${(props) => props.colors.highlight};
+  margin-bottom: 24px;
 `;
 
 export const List = styled.div`
@@ -39,19 +55,19 @@ export const Link = styled.div`
   transition: 0.5s;
 
   :hover {
-    box-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.3);
   }
 
   span {
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 16px;
     max-width: 98%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 0;
-    color: ${(props) => props.fontColors.secondary};
+    color: ${(props) => props.colors.highlight};
   }
 
   p {
