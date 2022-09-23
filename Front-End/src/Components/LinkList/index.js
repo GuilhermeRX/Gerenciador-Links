@@ -53,8 +53,8 @@ export default function LinkList() {
             colors={colors} key={index}
             onClick={({ target }) => handleEdit(list[index], target)}
           >
-            <span>{obj.label}</span>
-            <p>{obj.url}</p>
+            <span className="card-link">{obj.label}</span>
+            <p className="card-link">{obj.url}</p>
             <div >
               <BtnCopy url={obj.url}/>
               <IoTrashOutline onClick={() => handleDel(obj.id)} />
