@@ -13,7 +13,13 @@ export default class LinkService implements IService<ILink> {
     const objValid = validationBodyLink(obj);
     await this.userService.readOne(objValid.userId);
     const [link, boolean] = await this.db
-      .findOrCreate({ where: { label: obj.label }, defaults: { ...objValid } });
+      .findOrCreate({ 
+        where: { 
+          label: obj.label, 
+          userId: objValid.userId, 
+        },
+        defaults: { ...objValid } });
+        
     if (!boolean) {
       throw new Error('EntityAlreadyExists');
     }
