@@ -1,7 +1,8 @@
 import axios from 'axios';
+import 'dotenv/config';
 
 const api = axios.create({
-  baseURL: 'https://gerenciador-dev.herokuapp.com/',
+  baseURL: process.env.REACT_APP_API_URL
 });
 
 export const setToken = (token) => {
