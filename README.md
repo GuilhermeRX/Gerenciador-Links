@@ -74,14 +74,6 @@ Este repositório conta com duas aplicações, o primeiro é o Back-End onde tem
 ### Pré-requisitos
 
 1. É necessário que você tenha um banco de dados relacional ativo
-2. Configurar o dialeto do sequelize de acordo com o banco de dados que estiver utilizando.
-* Acesse o diretório.
-  ```sh
-  cd ./Back-End/src/database/config/
-  ```
-* Abra o arquivo config/database.ts e faça as modificações necessárias na chave 'dialect' na linha 10.
-
-![dialect-screen]
 
 Para rodar a aplicação localmente, siga estas etapas.
 
@@ -95,7 +87,16 @@ Para rodar a aplicação localmente, siga estas etapas.
    ```sh
    npm install
    ```
-3. Configure as váriávies de ambiente no arquivo ./Back-End/.env
+3. Configurar o dialeto do sequelize de acordo com o banco de dados que estiver utilizando.
+* Acesse o diretório.
+  ```sh
+  cd ./Back-End/src/database/config/
+  ```
+* Abra o arquivo config/database.ts e faça as modificações necessárias na chave 'dialect' na linha 10.
+
+![dialect-screen]
+
+4. Configure as váriávies de ambiente no arquivo ./Back-End/.env
    ```js
     PORT=portaDoServidorExpress
     DB_USER=userNameDeAcessoAoBanco
@@ -105,11 +106,11 @@ Para rodar a aplicação localmente, siga estas etapas.
     JWT_SECRET=segredoDoTokenJwt
     DB_DATABASE=nomeDoSeuBancoDeDados;
    ```
-4. Entre no repositório ./Back-End, execute o script que realizará a transpilação do código typescript para javascript e criará as tabelas de nosso banco. 
+5. Entre no repositório ./Back-End, execute o script que realizará a transpilação do código typescript para javascript e criará as tabelas de nosso banco. 
    ```sh
    npm run dev
    ```
-5. Entre no repositório ./Back-End e execute os testes de integração. 
+6. Entre no repositório ./Back-End e execute os testes de integração. 
    ```sh
    npm test
    ```
@@ -118,11 +119,11 @@ Para rodar a aplicação localmente, siga estas etapas.
 
 ![testes-screen]
 
-6. Ainda no repositório ./Back-End execute o comando para iniciar o servidor. 
+7. Ainda no repositório ./Back-End execute o comando para iniciar o servidor. 
    ```sh
    npm start
    ```
-7. Agora em ./Front-End execute o comando para iniciar a aplicação React. 
+8. Agora em ./Front-End execute o comando para iniciar a aplicação React. 
    ```sh
    npm start
    ```
