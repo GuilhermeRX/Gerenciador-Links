@@ -119,7 +119,6 @@ Para rodar a aplicação localmente, siga estas etapas.
    npm test
    ```
 * A saida deve ser a seguinte:
-<br />
 
   ![testes-screen]
 
