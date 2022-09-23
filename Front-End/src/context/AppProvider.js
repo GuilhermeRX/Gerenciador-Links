@@ -26,15 +26,16 @@ export default function AppProvider({ children }) {
   };
 
   const handleList = async () => {
-    const { token } = JSON.parse(localStorage.getItem('token'));
-    setToken(token);
-    const response = await requestData('/link');
-
-    if (response.error) {
-      return notifyError(`Error: ${response.error}`)
+    if(localStorage.token) {
+      const { token } = JSON.parse(localStorage.getItem('token'));
+      setToken(token);
+      const response = await requestData('/link');
+  
+      if (response.error) {
+        return notifyError(`Error: ${response.error}`)
+      }
+      setList(response);
     }
-
-    setList(response);
   }
 
   const contextValue = {

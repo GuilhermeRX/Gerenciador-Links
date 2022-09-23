@@ -36,6 +36,11 @@ export const Link = styled.div`
   padding: 8px;
   margin: 6px;
   cursor: pointer;
+  transition: 0.5s;
+
+  :hover {
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+  }
 
   span {
     font-style: normal;
