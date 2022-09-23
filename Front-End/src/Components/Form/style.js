@@ -11,6 +11,10 @@ export const FormContainer = styled.div`
   background-color: ${props => props.colors.tertiary};
 `;
 
+export const LoginLogo = styled.div`
+  margin-bottom: 16px;
+`;
+
 export const DivLogin = styled.div`
   width: 100%;
   display: flex;

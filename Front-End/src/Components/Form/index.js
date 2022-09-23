@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import AppContext from "../../context/AppContext";
 import { requestLogin } from "../../services/fetchAPI";
 import { notifyError, notifyRedirect } from "../../services/notify";
-import { Btn, BtnBack, DivBtnCrieSuaConta, DivCreateUser, DivLogin, FormContainer, InputText, Label } from "./style";
+import Logo from "../Logo";
+import { Btn, BtnBack, DivBtnCrieSuaConta, DivCreateUser, DivLogin, FormContainer, InputText, Label, LoginLogo } from "./style";
 
 export default function Form() {
   const { colors, fontColors } = useContext(AppContext);
@@ -31,6 +32,10 @@ export default function Form() {
 
   const divLogin = (
     <DivLogin>
+      <LoginLogo>
+        <Logo />
+      </LoginLogo>
+      
       <Label htmlFor="email" fontColors={fontColors}>
         Qual é o seu e-mail ?
         <InputText
