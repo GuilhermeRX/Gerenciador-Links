@@ -9,13 +9,13 @@ import { mockLogin, mockLoginInvalid, mockToken, mockUserLogin } from '../mocks/
 chai.use(chaiHttp);
 
 describe('Testa a rota de login', function () {
-
+  
   beforeEach(function () {
     Sinon.restore();
-    Sinon.stub(JwtService, 'sign').returns(mockToken);
   });
 
   it('Requisição com dados válidos', async function () {
+    Sinon.stub(JwtService, 'sign').returns(mockToken);
     Sinon.stub(User, 'findOne').resolves(mockUserLogin as User)
     const response = await chai.request(app)
       .post('/login')

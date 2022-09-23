@@ -30,13 +30,13 @@ export default class UserService implements IService<IUser> {
   }
 
   public async read(): Promise<IUser[]> {
-    const users = await this.db.findAll();
+    const users = await this.db.findAll({ attributes: { exclude: ['password'] } });
     return users;
   }
 
   public async readOne(id: string): Promise<IUser> {
     const numberId = validationIdParams(id);
-    const user = await this.db.findByPk(numberId);
+    const user = await this.db.findByPk(numberId, { attributes: { exclude: ['password'] } });
     if (!user) throw new Error('EntityNotFound');
     return user;
   }

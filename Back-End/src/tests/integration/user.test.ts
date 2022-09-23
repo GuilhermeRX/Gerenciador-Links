@@ -14,11 +14,10 @@ describe('Testa a rota de usuários', function () {
 
   beforeEach(function () {
     Sinon.restore();
-    Sinon.stub(JwtService, 'sign').returns(mockToken);
-    Sinon.stub(JwtService, 'validateToken').returns({});
   });
 
   it('Requisição para criar um novo usuário', async function () {
+    Sinon.stub(JwtService, 'sign').returns(mockToken);
     Sinon.stub(User, 'findOrCreate').resolves([mockUser as User, true])
     const response = await chai.request(app)
       .post('/user')
@@ -48,6 +47,7 @@ describe('Testa a rota de usuários', function () {
   });
 
   it('Requisição para atualizar um usuário.', async function () {
+    Sinon.stub(JwtService, 'validateToken').returns({});
     Sinon.stub(User, 'update').resolves();
     const response = await chai.request(app)
       .put('/user/2')
@@ -60,6 +60,7 @@ describe('Testa a rota de usuários', function () {
   });
 
   it('Requisição para recuperar todos os usuários', async function () {
+    Sinon.stub(JwtService, 'validateToken').returns({});
     Sinon.stub(User, 'findAll').resolves(mockUserArray as User[])
     const response = await chai.request(app)
       .get('/user')
@@ -96,6 +97,7 @@ describe('Testa a rota de usuários', function () {
   });
 
   it('Requisição para deletar um usuário', async function () {
+    Sinon.stub(JwtService, 'validateToken').returns({});
     Sinon.stub(User, 'destroy').resolves()
     const response = await chai.request(app)
       .delete('/user/2')
@@ -104,6 +106,7 @@ describe('Testa a rota de usuários', function () {
   });
 
   it('Requisição para deletar um usuário informando um id inválido', async function () {
+    Sinon.stub(JwtService, 'validateToken').returns({});
     Sinon.stub(User, 'destroy').resolves()
     const response = await chai.request(app)
       .delete('/user/a')

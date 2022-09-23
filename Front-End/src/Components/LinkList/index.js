@@ -3,6 +3,7 @@ import { IoTrashOutline } from 'react-icons/io5';
 import AppContext from "../../context/AppContext";
 import { deleteData } from "../../services/fetchAPI";
 import { notifyTrash } from "../../services/notify";
+import BtnCopy from "../Copy";
 import { Link, List, ListContainer } from "./style";
 export default function LinkList() {
   const {
@@ -54,6 +55,7 @@ export default function LinkList() {
             <span>{obj.label}</span>
             <p>{obj.url}</p>
             <div >
+              <BtnCopy url={obj.url}/>
               <IoTrashOutline onClick={() => handleDel(obj.id)} />
             </div>
           </Link>

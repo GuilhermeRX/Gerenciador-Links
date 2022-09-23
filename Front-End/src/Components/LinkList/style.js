@@ -41,6 +41,10 @@ export const Link = styled.div`
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
+    max-width: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     line-height: 0;
     color: ${(props) => props.fontColors.secondary};
   }
@@ -49,6 +53,10 @@ export const Link = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
+    max-width: 98%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     color: ${(props) => props.fontColors.tertiary};
   }
 
@@ -63,7 +71,9 @@ export const Link = styled.div`
 
   div svg {
     margin-top: 8px;
+    margin-left: 8px;
     font-size: 22px;
-    color: ${(props) => props.colors.highlight}
+    color: ${(props) => props.colors.highlight};
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.06);
   }
 `;

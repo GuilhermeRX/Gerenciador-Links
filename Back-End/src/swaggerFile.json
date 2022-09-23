@@ -402,10 +402,6 @@
         "email": {
           "type": "string",
           "example": "test@test.com"
-        },
-        "password": {
-          "type": "string",
-          "example": "123456"
         }
       }
     },

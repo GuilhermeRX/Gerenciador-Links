@@ -59,3 +59,15 @@ export const notifyRedirect = () => {
     progress: undefined,
   });
 };
+
+export const notifyCopy = (message) => {
+  toast.info(message, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+};
