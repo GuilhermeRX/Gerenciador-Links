@@ -94,9 +94,9 @@ Para rodar a aplicação localmente, siga estas etapas.
   ```
 * Abra o arquivo config/database.ts e faça as modificações necessárias na chave 'dialect' na linha 10.
 
-![dialect-screen]
+  ![dialect-screen]
 
-4. Configure as váriávies de ambiente no arquivo ./Back-End/.env
+4. Configure as variávies de ambiente no arquivo ./Back-End/.env
    ```js
     PORT=portaDoServidorExpress
     DB_USER=userNameDeAcessoAoBanco
@@ -106,24 +106,27 @@ Para rodar a aplicação localmente, siga estas etapas.
     JWT_SECRET=segredoDoTokenJwt
     DB_DATABASE=nomeDoSeuBancoDeDados;
    ```
-5. Entre no repositório ./Back-End, execute o script que realizará a transpilação do código typescript para javascript e criará as tabelas de nosso banco. 
+5. Configure as variáveis de ambiente no arquivo ./Front-End/.env
+    ```js
+    REACT_APP_API_URL=http://localhost:backendport
+    ```
+6. Entre no repositório ./Back-End, execute o script que realizará a transpilação do código typescript para javascript e criará as tabelas de nosso banco. 
    ```sh
    npm run dev
    ```
-6. Entre no repositório ./Back-End e execute os testes de integração. 
+7. Entre no repositório ./Back-End e execute os testes de integração. 
    ```sh
    npm test
    ```
 * A saida deve ser a seguinte:
-<br />
 
-![testes-screen]
+  ![testes-screen]
 
-7. Ainda no repositório ./Back-End execute o comando para iniciar o servidor. 
+8. Ainda no repositório ./Back-End execute o comando para iniciar o servidor. 
    ```sh
    npm start
    ```
-8. Agora em ./Front-End execute o comando para iniciar a aplicação React. 
+9. Agora em ./Front-End execute o comando para iniciar a aplicação React. 
    ```sh
    npm start
    ```
