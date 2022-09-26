@@ -43,7 +43,7 @@ export default class UserService implements IService<IUser> {
 
   public async readOneEmail(obj: ILogin): Promise<User> {
     const user = await this.db.findOne({ where: { email: obj.email } });
-    if (!user) throw new Error('EntityNotFound');
+    if (!user) throw new Error('UserNotExists');
     return user;
   }
 

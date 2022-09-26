@@ -41,7 +41,7 @@ describe('Testa a rota de login', function () {
       .send(mockLogin);
     const { error } = response.body;
     expect(response.status).to.equal(404);
-    expect(error).to.equal('Object not found');
+    expect(error).to.equal('Unregistered user');
   });
 
 });
