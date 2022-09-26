@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AppContext from "../../context/AppContext";
 import { requestLogin } from "../../services/fetchAPI";
 import { notifyError, notifyRedirect } from "../../services/notify";
+import Loading from "../Loading";
 import Logo from "../Logo";
 import { Btn, BtnBack, DivBtnCrieSuaConta, DivCreateUser, DivLogin, FormContainer, InputText, Label, LoginLogo } from "./style";
 
@@ -15,15 +16,19 @@ export default function Form() {
   const [createEmail, setCreateEmail] = useState('');
   const [createName, setCreateName] = useState('');
   const [createPassword, setCreatePassword] = useState('');
-
+  const [loading, setLoading] = useState(false);
+  
   const navigate = useNavigate();
 
   const handleLogin = async (endpoint, body) => {
+    setLoading(true);
     const response = await requestLogin(endpoint, body);
     if (response.error) {
+      setLoading(false);
       return notifyError(response.error);
     };
     localStorage.setItem('token', JSON.stringify(response));
+    setLoading(false);
     notifyRedirect()
     setTimeout(() => {
       navigate('/home')
@@ -60,13 +65,14 @@ export default function Form() {
         />
       </Label>
 
-      <Btn
+      {loading ? <Loading /> : <Btn
         colors={colors}
         fontColors={fontColors}
         onClick={() => handleLogin('/login',
           { email: loginEmail, password: loginPassword })}
-      >Entrar</Btn>
-
+      >
+        Entrar
+      </Btn>}
       <DivBtnCrieSuaConta fontColors={fontColors}>
         <p >Não tem conta?</p>
         <span onClick={() => setCreateDiv(true)}>Crie agora</span>
@@ -117,12 +123,12 @@ export default function Form() {
         />
       </Label>
 
-      <Btn
+      {loading ? <Loading /> : <Btn
         colors={colors}
         fontColors={fontColors}
         onClick={() => handleLogin('/user',
           { name: createName, email: createEmail, password: createPassword })}
-      >Criar sua conta</Btn>
+      >Criar sua conta</Btn>}
     </DivCreateUser>
   );
 
